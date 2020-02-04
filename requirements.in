@@ -7,4 +7,5 @@ pip-tools
 pre-commit==1.10
 ipython
 django-extensions
-gsub
+gsub==0.1.5
+click==7
