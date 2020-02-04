@@ -14,6 +14,7 @@ setup() {
     test -f venv/bin/python || python3 -m venv venv
     test -f venv/bin/doit || pip install -r requirements.txt
     test -f .git/hooks/pre-commit || pre-commit install
+    test -f realm/README.md || gsub update
 
     mkdir -p .cargo
     test -f .cargo/bin/diesel || cargo install diesel_cli --no-default-features --features sqlite
