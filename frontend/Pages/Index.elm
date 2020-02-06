@@ -1,4 +1,4 @@
-module Pages.Index exposing (main)
+module Pages.Index exposing (Config, main)
 
 import Browser as B
 import Element as E

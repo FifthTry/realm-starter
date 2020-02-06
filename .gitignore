@@ -11,3 +11,6 @@ realm
 .idea
 hello.db
 pristine.db
+static/elm.js
+static/storybook.js
+static/iframe.js
