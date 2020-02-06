@@ -7,7 +7,7 @@ struct Page {
     count: i32,
 }
 
-pub fn get(in_: &In<bool>) -> realm::Result {
+pub fn get(in_: &In0) -> realm::Result {
     Page {
         message: "hello world".to_string(),
         count: crate::db::get_count(in_)?,
@@ -15,6 +15,6 @@ pub fn get(in_: &In<bool>) -> realm::Result {
     .with_title("Welcome")
 }
 
-pub fn redirect(in_: &In<bool>) -> realm::Result {
+pub fn redirect(in_: &In0) -> realm::Result {
     get(in_).map(|r| r.with_url(crate::reverse::index()))
 }

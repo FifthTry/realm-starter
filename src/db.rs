@@ -1,6 +1,6 @@
 pub use realm::base::*;
 
-pub fn increment(in_: &In<bool>) -> Result<()> {
+pub fn increment(in_: &In0) -> Result<()> {
     use crate::schema::hello_counter;
     use diesel::prelude::*;
 
@@ -11,7 +11,7 @@ pub fn increment(in_: &In<bool>) -> Result<()> {
         .map_err(Into::into)
 }
 
-pub fn get_count(in_: &In<bool>) -> Result<i32> {
+pub fn get_count(in_: &In0) -> Result<i32> {
     use crate::schema::hello_counter;
     use diesel::prelude::*;
 

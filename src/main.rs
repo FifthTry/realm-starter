@@ -3,12 +3,12 @@ realm::realm! {middleware}
 
 pub fn middleware(ctx: &realm::Context) -> realm::Result {
     let conn = sqlite::connection()?;
-    let in_: In<bool> = realm::base::In::from(&conn, ctx);
+    let in_: In0 = realm::base::In::from(&conn, ctx);
 
     route(&in_)
 }
 
-pub fn route(in_: &In<bool>) -> realm::Result {
+pub fn route(in_: &In0) -> realm::Result {
     let mut input = in_.ctx.input()?;
 
     match in_.ctx.pm() {
