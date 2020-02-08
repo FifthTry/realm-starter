@@ -13,7 +13,11 @@ stories : List ( String, List Story )
 stories =
     [ ( "Index"
       , [ index "count_42" "Count = 42" { message = "hello world", count = 42 }
-        , index "big_message" "Big Message" { message = "hello world", count = 42 }
+        , index "big_message"
+            "Big Message"
+            { message = "hello world, its really nice to meet you!"
+            , count = 2
+            }
         ]
       )
     ]
