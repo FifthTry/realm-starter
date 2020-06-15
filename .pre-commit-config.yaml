@@ -1,5 +1,5 @@
 -   repo: https://github.com/ambv/black
-    rev: stable
+    rev: HEAD
     hooks:
     - id: black
       language_version: python

@@ -25,7 +25,9 @@ in
     nativeBuildInputs = [
       elmPackages.elm-format
       elmPackages.elm
-
+      stdenv.cc.cc.lib
+      clang
+      llvm
       file
       zsh
       wget
@@ -78,7 +80,8 @@ in
     )
       +
     ''
-      export LD_LIBRARY_PATH=$(rustc --print sysroot)/lib:$LD_LIBRARY_PATH;
+      export LD_LIBRARY_PATH=$(rustc --print sysroot)/lib:${stdenv.cc.cc.lib}/lib:$LD_LIBRARY_PATH;
+      export LIBCLANG_PATH="${llvmPackages.libclang}/lib"
       export ZDOTDIR=`pwd`;
       export HISTFILE=~/.zsh_history
       export CARGO_TARGET_DIR=`pwd`/target-nix

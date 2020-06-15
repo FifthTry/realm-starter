@@ -17,6 +17,11 @@ static/elm.js
 static/storybook.js
 static/iframe.js
 static/test.js
+static/current.txt
+static/last.txt
+static/hello.db
+
 
 /index.html
 elm.hashed-*
+sw.hashed-*
