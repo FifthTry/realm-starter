@@ -2,4 +2,4 @@
 
 set -e
 cd dj
-../venv/bin/python manage.py migrate
+DATABASE_URL=${DATABASE_URL_PY} ../venv/bin/python manage.py migrate
