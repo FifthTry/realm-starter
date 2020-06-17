@@ -39,3 +39,18 @@ pub fn add(in_: &In0, text: String, finished: i32) -> Result<()> {
         .map(|_| ())
         .map_err(Into::into)
 }
+
+// pub fn get_all(in_: &In0) -> Result<Vec<Todo>> {
+//     use crate::schema::hello_todo;
+//     use diesel::prelude::*;
+//
+//     let rows: Result<Vec<Todo>> = hello_todo::table
+//         .select((
+//             hello_todo::text,
+//             hello_todo::finished
+//         ))
+//         .load(in_.conn)
+//         .map_err(Into::into);
+//
+//     rows
+// }
