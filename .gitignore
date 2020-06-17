@@ -25,3 +25,5 @@ static/hello.db
 /index.html
 elm.hashed-*
 sw.hashed-*
+
+target/

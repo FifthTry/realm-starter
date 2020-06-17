@@ -39,7 +39,7 @@ o() {
 
 manage() {
     pushd2 /dj
-    python manage.py "$@"
+    DATABASE_URL=${DATABASE_URL_PY} python manage.py "$@"
     r=$?
     popd2
     return ${r}
@@ -47,7 +47,7 @@ manage() {
 
 migrate() {
     pushd2 /dj
-    python manage.py migrate "$@"
+    DATABASE_URL=${DATABASE_URL_PY} python manage.py migrate "$@"
     r=$?
     popd2
     return ${r}

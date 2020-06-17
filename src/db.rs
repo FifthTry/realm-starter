@@ -28,3 +28,14 @@ pub fn get_count(in_: &In0) -> Result<i32> {
 
     Ok(0)
 }
+
+pub fn add(in_: &In0, text: String, finished: i32) -> Result<()> {
+    use crate::schema::hello_todo;
+    use diesel::prelude::*;
+
+    diesel::insert_into(hello_todo::table)
+        .values((hello_todo::text.eq(text), hello_todo::finished.eq(finished)))
+        .execute(in_.conn)
+        .map(|_| ())
+        .map_err(Into::into)
+}

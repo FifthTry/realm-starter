@@ -18,3 +18,7 @@ pub fn get(in_: &In0) -> realm::Result {
 pub fn redirect(in_: &In0) -> realm::Result {
     get(in_).map(|r| r.with_url(crate::reverse::index()))
 }
+
+pub fn redirect_todo(in_: &In0) -> realm::Result {
+    get(in_).map(|r| r.with_url(crate::reverse::todo_index()))
+}

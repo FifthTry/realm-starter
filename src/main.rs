@@ -1,3 +1,4 @@
+use http::method::Method;
 use realm::base::*;
 realm::realm! {middleware}
 
@@ -14,6 +15,11 @@ pub fn route(in_: &In0) -> realm::Result {
     match in_.ctx.pm() {
         t if realm::is_realm_url(t) => realm::handle(in_, t, &mut input),
         ("/increment/", _) => realm_tutorial::routes::increment::get(in_),
+        ("/todo/", &Method::GET) => realm_tutorial::routes::todo::index(in_),
+        ("/todo/add/", &Method::POST) => {
+            let (text, finished) = input.required2("text", "finished")?;
+            realm_tutorial::routes::todo::add_todo(in_, text, finished)
+        }
         _ => realm_tutorial::routes::index::get(in_),
     }
 }
