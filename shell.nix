@@ -87,5 +87,6 @@ in
       export CARGO_TARGET_DIR=`pwd`/target-nix
       echo "Using ${python37.name}, ${elmPackages.elm.name}, and ${rustChannels.rust.name}."
       unset MACOSX_DEPLOYMENT_TARGET
+      source auto.sh
     '';
   }

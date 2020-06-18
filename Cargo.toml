@@ -20,7 +20,5 @@ diesel = { version = "1.4.2", features = ["sqlite"] }
 [workspace]
 members = [
     "realm",
-    "realm/realm_macros",
-    "observer/observer",
-    "observer/observer_attribute"
+    "realm/realm_macros"
 ]
