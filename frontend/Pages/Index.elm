@@ -1,8 +1,7 @@
-module Pages.Index exposing (Config, main)
+module Pages.Index exposing (Config, Model, app, main)
 
 import Browser as B
 import Element as E
-import Element.Events as EE
 import Element.Font as EF
 import Json.Decode as JD
 import Realm as R
@@ -20,6 +19,11 @@ app =
 type alias Config =
     { message : String
     , count : Int
+    }
+
+
+type alias Model =
+    { config : Config
     }
 
 
