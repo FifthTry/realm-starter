@@ -1,4 +1,4 @@
-module Pages.Index exposing (Config, Model, app, main)
+module Pages.Index exposing (Config, app, main)
 
 import Browser as B
 import Element as E
@@ -19,11 +19,6 @@ app =
 type alias Config =
     { message : String
     , count : Int
-    }
-
-
-type alias Model =
-    { config : Config
     }
 
 

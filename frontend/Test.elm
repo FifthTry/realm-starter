@@ -29,4 +29,6 @@ tests =
 
 index : List RT.Step
 index =
-    [ RT.Navigate Index.newPage Routes.index ]
+    [ RT.Navigate Index.fresh Routes.index
+    , RT.Navigate Index.increment Routes.increment
+    ]

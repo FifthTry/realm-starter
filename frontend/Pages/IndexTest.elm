@@ -5,16 +5,21 @@ import Realm as R
 import Realm.Utils as RU
 
 
-newPage : ( String, String )
-newPage =
-    ( "Index", "newPage" )
+fresh : ( String, String )
+fresh =
+    ( "Index", "fresh" )
+
+
+increment : ( String, String )
+increment =
+    ( "Index", "increment" )
 
 
 main =
     R.test0 M.app init
 
 
-init : R.In -> R.TestFlags M.Config -> ( M.Model, Cmd (R.Msg ()) )
+init : R.In -> R.TestFlags M.Config -> ( M.Config, Cmd (R.Msg ()) )
 init in_ test =
     let
         id =
@@ -23,16 +28,25 @@ init in_ test =
         ( m, c ) =
             M.app.init in_ test.config
 
-        f : List R.TestResult -> ( M.Model, Cmd (R.Msg ()) )
+        f : List R.TestResult -> ( M.Config, Cmd (R.Msg ()) )
         f l =
             ( m, R.result c (l ++ [ R.TestDone ]) )
     in
-    (if id == newPage then
+    (if id == fresh then
         [ RU.match "message match"
             "hello world"
             test.config.message
         , RU.match "count match"
             0
+            test.config.count
+        ]
+
+     else if id == increment then
+        [ RU.match "message match"
+            "hello world"
+            test.config.message
+        , RU.match "count match"
+            1
             test.config.count
         ]
 
