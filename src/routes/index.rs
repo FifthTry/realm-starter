@@ -1,5 +1,5 @@
 pub use realm::base::*;
-pub use realm::Page as RealmPage;
+pub use realm::{Or404, Page as RealmPage};
 
 #[realm_page(id = "Pages.Index")]
 struct Page {
