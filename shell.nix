@@ -1,7 +1,9 @@
 let
   moz_overlay = import (
-    builtins.fetchTarball
-        https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz
+    builtins.fetchTarball {
+        url = https://github.com/mozilla/nixpkgs-mozilla/archive/e912ed483e980dfb4666ae0ed17845c4220e5e7c.tar.gz;
+        sha256 = "08fvzb8w80bkkabc1iyhzd15f4sm7ra10jn32kfch5klgl0gj3j3";
+    }
   );
   nixpkgs = import (
     builtins.fetchTarball https://github.com/NixOS/nixpkgs/archive/19.09.tar.gz
