@@ -58,6 +58,7 @@ in
       cacert
       libiconv
       ngrok
+      gnupg
 
       python37
     ]
