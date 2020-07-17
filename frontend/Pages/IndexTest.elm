@@ -19,7 +19,7 @@ main =
     R.test0 M.app init
 
 
-init : R.In -> R.TestFlags M.Config -> ( M.Config, Cmd (R.Msg M.Msg) )
+init : R.In -> R.TestFlags M.Config -> ( M.Model, Cmd (R.Msg M.Msg) )
 init in_ test =
     let
         id =
@@ -28,7 +28,7 @@ init in_ test =
         ( m, c ) =
             M.app.init in_ test.config
 
-        f : List R.TestResult -> ( M.Config, Cmd (R.Msg M.Msg) )
+        f : List R.TestResult -> ( M.Model, Cmd (R.Msg M.Msg) )
         f l =
             ( m, R.result c (l ++ [ R.TestDone ]) )
     in
