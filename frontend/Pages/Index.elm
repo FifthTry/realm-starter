@@ -9,7 +9,7 @@ import Realm as R
 
 app : R.App Config Model Msg
 app =
-    R.App config init update sub document
+    R.App config init update subscriptions document
 
 
 type alias Config =
@@ -36,8 +36,8 @@ update _ _ m =
     ( m, Cmd.none )
 
 
-sub : R.In -> Model -> Sub (R.Msg Msg)
-sub _ _ =
+subscriptions : R.In -> Model -> Sub (R.Msg Msg)
+subscriptions _ _ =
     Sub.none
 
 
