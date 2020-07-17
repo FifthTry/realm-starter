@@ -27,8 +27,8 @@ init _ c =
 
 
 update : R.In -> Msg -> Model -> ( Model, Cmd (R.Msg Msg) )
-update _ _ model =
-    ( model, Cmd.none )
+update _ _ m =
+    ( m, Cmd.none )
 
 
 sub : R.In -> Model -> Sub (R.Msg Msg)
