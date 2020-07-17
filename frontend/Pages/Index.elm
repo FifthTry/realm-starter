@@ -1,4 +1,4 @@
-module Pages.Index exposing (Config, app, main)
+module Pages.Index exposing (Config, Msg, app, main)
 
 import Browser as B
 import Element as E
@@ -11,7 +11,7 @@ main =
     R.app app
 
 
-app : R.App Config Config ()
+app : R.App Config Config Msg
 app =
     R.App config R.init0 R.update0 R.sub0 document
 
@@ -22,7 +22,11 @@ type alias Config =
     }
 
 
-view : Config -> E.Element (R.Msg ())
+type Msg
+    = NoOp
+
+
+view : Config -> E.Element (R.Msg Msg)
 view c =
     E.column [ E.centerX, E.centerY, E.spacing 20 ]
         [ E.el [ E.centerX, EF.italic ]
@@ -38,7 +42,7 @@ view c =
         ]
 
 
-document : R.In -> Config -> B.Document (R.Msg ())
+document : R.In -> Config -> B.Document (R.Msg Msg)
 document in_ =
     view >> R.document in_
 
