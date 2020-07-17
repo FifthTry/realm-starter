@@ -7,20 +7,6 @@ import Json.Decode as JD
 import Realm as R
 
 
-main =
-    R.app app
-
-
-init : R.In -> Config -> ( Model, Cmd (R.Msg Msg) )
-init _ c =
-    ( { config = c }, Cmd.none )
-
-
-app : R.App Config Model Msg
-app =
-    R.App config init R.update0 R.sub0 document
-
-
 type alias Config =
     { message : String
     , count : Int
@@ -33,6 +19,21 @@ type alias Model =
 
 type Msg
     = NoOp
+
+
+init : R.In -> Config -> ( Model, Cmd (R.Msg Msg) )
+init _ c =
+    ( { config = c }, Cmd.none )
+
+
+update : R.In -> Msg -> Model -> ( Model, Cmd (R.Msg Msg) )
+update _ _ model =
+    ( model, Cmd.none )
+
+
+sub : R.In -> Model -> Sub (R.Msg Msg)
+sub _ _ =
+    Sub.none
 
 
 view : Model -> E.Element (R.Msg Msg)
@@ -65,3 +66,12 @@ config =
     JD.map2 Config
         (JD.field "message" JD.string)
         (JD.field "count" JD.int)
+
+
+app : R.App Config Model Msg
+app =
+    R.App config init update sub document
+
+
+main =
+    R.app app
