@@ -7,6 +7,11 @@ import Json.Decode as JD
 import Realm as R
 
 
+app : R.App Config Model Msg
+app =
+    R.App config init update sub document
+
+
 type alias Config =
     { message : String
     , count : Int
@@ -66,11 +71,6 @@ config =
     JD.map2 Config
         (JD.field "message" JD.string)
         (JD.field "count" JD.int)
-
-
-app : R.App Config Model Msg
-app =
-    R.App config init update sub document
 
 
 main =
